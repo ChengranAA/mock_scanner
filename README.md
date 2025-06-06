@@ -2,7 +2,10 @@
 A lightweight, cross-platform tool designed to simulate scanner triggers automatically. It starts on launch and can be seamlessly embedded into any experimental framework that supports standard socket functions.
 
 ## Usage
-Add the following snippet to your experiment scripts (in python, you can find more language in the example folder)
+Add the following snippet to your experiment scripts
+
+
+For python:
 ```python
 import socket
 
@@ -14,4 +17,22 @@ def start_scanner(host = "127.0.0.1", port = 2333):
 if __name__ == "__main__":
     start_scanner()
     # rest of your code
+```
+For MATLAB:
+```MATLAB
+function start_scanner(host, port)
+    if nargin < 1
+        host = '127.0.0.1';
+    end
+    if nargin < 2
+        port = 2333;
+    end
+
+    t = tcpclient(host, port);
+    write(t, uint8('Start'));
+    clear t;
+end
+
+start_scanner();
+% rest of your code
 ```
