@@ -104,7 +104,10 @@ fn main() {
             match now.elapsed() {
                 Ok(elapsed) => {
                     println!("Finish Scanning ...");
-                    println!("Elapsed time: {:.3} seconds", elapsed.as_secs_f64());
+                    let elapsed = elapsed.as_secs_f64();
+                    let minutes = (elapsed / 60.0).floor();
+                    let seconds = elapsed % 60.0;
+                    println!("Elapsed time: {}m {:.3}s", minutes, seconds);
                 }
                 Err(e) => {
                     eprintln!("Error measuring elapsed time: {}", e);
