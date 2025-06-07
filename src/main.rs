@@ -32,7 +32,7 @@ fn start_scanner(address: &str) -> std::io::Result<bool> {
 fn main() {
     let matches = Command::new("mock_scanner")
         .about("A mock scanner utility")
-        .version("1.0.0")
+        .version("0.0.1")
         .arg(
             Arg::new("tr")
                 .long("tr")
